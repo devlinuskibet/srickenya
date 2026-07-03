@@ -45,12 +45,8 @@ export default function NavBar() {
           gap: 20,
         }}
       >
-        <span style={{ color: "rgba(255,255,255,0.6)", fontSize: 11, letterSpacing: 1 }}>
-          sric@srickenya.org
-        </span>
-        <span style={{ color: "rgba(255,255,255,0.6)", fontSize: 11, letterSpacing: 1 }}>
-          +254 720 338336
-        </span>
+        <span style={{ color: "rgba(255,255,255,0.6)", fontSize: 11, letterSpacing: 1 }}>sric@srickenya.org</span>
+        <span style={{ color: "rgba(255,255,255,0.6)", fontSize: 11, letterSpacing: 1 }}>+254 720 338336</span>
       </div>
 
       <div
@@ -63,10 +59,7 @@ export default function NavBar() {
           height: 72,
         }}
       >
-        <div
-          onClick={() => navigate("/")}
-          style={{ cursor: "pointer", display: "flex", alignItems: "center", gap: 8 }}
-        >
+        <div onClick={() => navigate("/")} style={{ cursor: "pointer", display: "flex", alignItems: "center", gap: 8 }}>
           <img
             src={sricLogo}
             alt="SRIC - Security Research & Information Centre"

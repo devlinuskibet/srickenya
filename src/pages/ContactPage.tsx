@@ -1,3 +1,4 @@
+import Button from "../components/Button";
 import { useState } from "react";
 import PageHero from "../components/PageHero";
 
@@ -185,15 +186,16 @@ export default function ContactPage() {
                     style={{ resize: "vertical" }}
                   />
                 </div>
-                <button
-                  className="btn-primary"
-                  style={{ width: "100%", textAlign: "center", padding: "14px 28px" }}
+                <Button
+                  variant="primary"
+                  fullWidth
+                  style={{ padding: "14px 28px" }}
                   onClick={() => {
                     if (form.name && form.email && form.message) setSent(true);
                   }}
                 >
                   Send Message
-                </button>
+                </Button>
                 <p style={{ fontSize: 11, color: "var(--text-light)", marginTop: 12, textAlign: "center" }}>
                   Your message is confidential and will only be shared with relevant SRIC team members.
                 </p>

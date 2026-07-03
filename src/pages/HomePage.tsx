@@ -1,3 +1,4 @@
+import Button from "../components/Button";
 import { useState, useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { heroSlides, programs, stats, publications, galleryItems, partners } from "../data";
@@ -107,12 +108,12 @@ export default function HomePage() {
             </h1>
             <div style={{ width: 80, height: 3, background: "var(--gold)", marginBottom: 36 }} />
             <div style={{ display: "flex", gap: 16, flexWrap: "wrap" }}>
-              <button className="btn-primary" onClick={() => navigate(current.page)}>
+              <Button variant="primary" onClick={() => navigate(current.page)}>
                 {current.cta}
-              </button>
-              <button className="btn-outline" onClick={() => navigate("/publications")}>
+              </Button>
+              <Button variant="outline" onClick={() => navigate("/publications")}>
                 Read Our Research
-              </button>
+              </Button>
             </div>
           </div>
         </div>
@@ -171,9 +172,9 @@ export default function HomePage() {
               governance, security sector reform, and emerging crime analysis.
             </p>
             <div style={{ marginTop: 32 }}>
-              <button className="btn-navy" onClick={() => navigate("/our-story")}>
+              <Button variant="navy" onClick={() => navigate("/our-story")}>
                 Learn About SRIC
-              </button>
+              </Button>
             </div>
           </div>
           <div style={{ position: "relative" }}>
@@ -281,9 +282,9 @@ export default function HomePage() {
             ))}
           </div>
           <div style={{ textAlign: "center", marginTop: 48 }}>
-            <button className="btn-primary" onClick={() => navigate("/impact")}>
+            <Button variant="primary" onClick={() => navigate("/impact")}>
               View Full Impact Report
-            </button>
+            </Button>
           </div>
         </div>
       </section>
@@ -357,12 +358,12 @@ export default function HomePage() {
               incorporates qualitative community assessments and cross-border dimension analysis.
             </p>
             <div style={{ display: "flex", gap: 16, marginTop: 32, flexWrap: "wrap" }}>
-              <button className="btn-primary" onClick={() => navigate("/publications")}>
+              <Button variant="primary" onClick={() => navigate("/publications")}>
                 Download Full Report
-              </button>
-              <button className="btn-navy" onClick={() => navigate("/publications")}>
+              </Button>
+              <Button variant="navy" onClick={() => navigate("/publications")}>
                 View All Publications
-              </button>
+              </Button>
             </div>
           </div>
         </div>
@@ -385,9 +386,9 @@ export default function HomePage() {
               <h2 className="section-heading">Publications & Resources</h2>
               <div className="divider-gold" />
             </div>
-            <button className="btn-navy" onClick={() => navigate("/publications")}>
+            <Button variant="navy" onClick={() => navigate("/publications")}>
               Browse All Publications
-            </button>
+            </Button>
           </div>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 24 }} className="grid-4">
             {publications.map((pub) => (
@@ -414,9 +415,9 @@ export default function HomePage() {
                   </p>
                   <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
                     <span style={{ fontSize: 11, color: "var(--text-light)" }}>{pub.year}</span>
-                    <button className="btn-primary" style={{ fontSize: 11, padding: "6px 14px" }}>
+                    <Button variant="primary" style={{ fontSize: 11, padding: "6px 14px" }}>
                       Download
-                    </button>
+                    </Button>
                   </div>
                 </div>
               </div>
@@ -442,9 +443,9 @@ export default function HomePage() {
               <h2 className="section-heading">In Action</h2>
               <div className="divider-gold" />
             </div>
-            <button className="btn-navy" onClick={() => navigate("/media")}>
+            <Button variant="navy" onClick={() => navigate("/media")}>
               View Full Gallery
-            </button>
+            </Button>
           </div>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 12 }} className="grid-4">
             {galleryItems.map((item) => (
@@ -537,12 +538,12 @@ export default function HomePage() {
             to design evidence-driven solutions for complex security challenges across East Africa.
           </p>
           <div style={{ display: "flex", gap: 16, justifyContent: "center", flexWrap: "wrap" }}>
-            <button className="btn-primary" onClick={() => navigate("/partner-us")}>
+            <Button variant="primary" onClick={() => navigate("/partner-us")}>
               Partner With Us
-            </button>
-            <button className="btn-outline" onClick={() => navigate("/careers")}>
+            </Button>
+            <Button variant="outline" onClick={() => navigate("/careers")}>
               Get Involved
-            </button>
+            </Button>
           </div>
         </div>
       </section>

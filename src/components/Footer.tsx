@@ -1,3 +1,4 @@
+import Button from "../components/Button";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import sricLogo from "../assets/logos/sric.png";
@@ -149,13 +150,13 @@ export default function Footer() {
                     outline: "none",
                   }}
                 />
-                <button
-                  className="btn-primary"
+                <Button
+                  variant="primary"
                   onClick={() => setSubscribed(true)}
                   style={{ width: "100%", textAlign: "center" }}
                 >
                   Subscribe
-                </button>
+                </Button>
               </div>
             )}
 

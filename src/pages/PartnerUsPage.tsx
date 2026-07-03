@@ -1,6 +1,5 @@
+import Button from "../components/Button";
 import PageHero from "../components/PageHero";
-
-
 
 const types = [
   { title: "Institutional Partnerships", desc: "Co-design research programs with SRIC." },
@@ -81,9 +80,9 @@ export default function PartnerUsPage() {
                   <label className="form-label">Message</label>
                   <textarea className="form-input" rows={4} style={{ resize: "vertical" }} />
                 </div>
-                <button className="btn-primary" style={{ width: "100%", textAlign: "center" }}>
+                <Button variant="primary" fullWidth>
                   Submit Inquiry
-                </button>
+                </Button>
               </div>
             </div>
           </div>

@@ -1,3 +1,4 @@
+import Button from "../../components/Button";
 import PageHero from "../../components/PageHero";
 
 const board = [
@@ -187,12 +188,12 @@ export default function GovernancePage() {
               </p>
             </div>
             <div>
-              <button className="btn-primary" style={{ marginBottom: 16, display: "block" }}>
+              <Button variant="primary" style={{ marginBottom: 16, display: "block" }}>
                 Download Annual Report
-              </button>
-              <button className="btn-outline" style={{ display: "block" }}>
+              </Button>
+              <Button variant="outline" style={{ display: "block" }}>
                 Research Ethics Policy
-              </button>
+              </Button>
             </div>
           </div>
         </div>

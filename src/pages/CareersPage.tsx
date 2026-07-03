@@ -1,3 +1,4 @@
+import Button from "../components/Button";
 import PageHero from "../components/PageHero";
 
 const jobs = [
@@ -78,9 +79,9 @@ export default function CareersPage() {
                         </span>
                       </div>
                     </div>
-                    <button className="btn-primary" style={{ fontSize: 12, padding: "8px 16px", whiteSpace: "nowrap" }}>
+                    <Button variant="primary" style={{ fontSize: 12, padding: "8px 16px", whiteSpace: "nowrap" }}>
                       Apply Now
-                    </button>
+                    </Button>
                   </div>
                 ))}
               </div>
@@ -129,9 +130,9 @@ export default function CareersPage() {
                 <p style={{ fontSize: 13, color: "rgba(255,255,255,0.7)", marginBottom: 20 }}>
                   Send us your CV for future consideration.
                 </p>
-                <button className="btn-outline" style={{ width: "100%", textAlign: "center" }}>
+                <Button variant="outline" fullWidth>
                   Submit CV
-                </button>
+                </Button>
               </div>
             </div>
           </div>

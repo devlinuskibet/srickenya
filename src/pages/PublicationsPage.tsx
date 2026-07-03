@@ -1,3 +1,4 @@
+import Button from "../components/Button";
 import { useState } from "react";
 import PageHero from "../components/PageHero";
 import { publications } from "../data";
@@ -73,9 +74,9 @@ export default function PublicationsPage() {
                   </p>
                   <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
                     <span style={{ fontSize: 11, color: "var(--text-light)" }}>{pub.year}</span>
-                    <button className="btn-primary" style={{ fontSize: 11, padding: "6px 14px" }}>
+                    <Button variant="primary" style={{ fontSize: 11, padding: "6px 14px" }}>
                       Download
-                    </button>
+                    </Button>
                   </div>
                 </div>
               </div>

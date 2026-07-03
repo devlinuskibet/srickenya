@@ -1,3 +1,4 @@
+import Button from "../../components/Button";
 import PageHero from "../../components/PageHero";
 
 export type ProgramPageProps = {
@@ -106,15 +107,12 @@ export default function ProgramPage({ title, icon, subtitle, framing, areas, fla
               <p style={{ fontSize: 15, color: "rgba(255,255,255,0.7)", lineHeight: 1.8 }}>{flagship.desc}</p>
             </div>
             <div>
-              <button
-                className="btn-primary"
-                style={{ display: "block", marginBottom: 16, width: "100%", textAlign: "center" }}
-              >
+              <Button variant="primary" fullWidth style={{ marginBottom: 16 }}>
                 View Publications
-              </button>
-              <button className="btn-outline" style={{ display: "block", width: "100%", textAlign: "center" }}>
+              </Button>
+              <Button variant="outline" fullWidth>
                 Contact Program Team
-              </button>
+              </Button>
             </div>
           </div>
         </div>

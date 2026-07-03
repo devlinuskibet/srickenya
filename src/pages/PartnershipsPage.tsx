@@ -1,3 +1,4 @@
+import Button from "../components/Button";
 import PageHero from "../components/PageHero";
 import { partners } from "../data";
 
@@ -133,9 +134,9 @@ export default function PartnershipsPage() {
               We welcome partnerships with organizations that share our commitment to evidence-based human security.
               Reach out to explore collaboration opportunities.
             </p>
-            <button className="btn-primary" onClick={() => navigate("/contact")}>
+            <Button variant="primary" onClick={() => navigate("/contact")}>
               Contact Partnership Team
-            </button>
+            </Button>
           </div>
         </div>
       </section>

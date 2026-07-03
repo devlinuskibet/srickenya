@@ -1,3 +1,4 @@
+import Button from "../components/Button";
 import PageHero from "../components/PageHero";
 
 export default function InternshipsPage() {
@@ -24,9 +25,9 @@ export default function InternshipsPage() {
               <option>Arms Control</option>
               <option>Peacebuilding</option>
             </select>
-            <button className="btn-primary" style={{ width: "100%" }}>
+            <Button variant="primary" fullWidth>
               Submit Application
-            </button>
+            </Button>
           </div>
         </div>
       </section>
