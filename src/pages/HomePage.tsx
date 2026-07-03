@@ -1,4 +1,5 @@
 import Button from "../components/Button";
+import SectionHeader from "../components/SectionHeader";
 import { useState, useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { heroSlides, programs, stats, publications, galleryItems, partners } from "../data";
@@ -158,9 +159,7 @@ export default function HomePage() {
           className="grid-2"
         >
           <div>
-            <div className="section-label">Who We Are</div>
-            <h2 className="section-heading">Independent Research. Regional Impact.</h2>
-            <div className="divider-gold" />
+            <SectionHeader label="Who We Are" title="Independent Research. Regional Impact." />
             <p className="section-sub">
               Security Research and Information Centre is an independent regional think tank dedicated to advancing
               human security, evidence-based policy, and conflict transformation across Kenya, the Great Lakes, and the
@@ -214,11 +213,7 @@ export default function HomePage() {
 
       <section className="section-pad-lg home-section delay-2" style={{ background: "var(--grey-light)" }}>
         <div style={{ maxWidth: 1200, margin: "0 auto" }}>
-          <div style={{ textAlign: "center", marginBottom: 56 }}>
-            <div className="section-label">What We Do</div>
-            <h2 className="section-heading">Our Areas of Work</h2>
-            <div className="divider-gold-center" />
-          </div>
+          <SectionHeader label="What We Do" title="Our Areas of Work" align="center" />
           <div style={{ display: "grid", gridTemplateColumns: "repeat(5, 1fr)", gap: 20 }} className="grid-5">
             {programs.map((p) => (
               <div key={p.title} className="prog-card card-hover" onClick={() => navigate(p.page)}>
@@ -258,13 +253,13 @@ export default function HomePage() {
         style={{ background: "var(--deep-blue)" }}
       >
         <div style={{ maxWidth: 1200, margin: "0 auto" }}>
-          <div style={{ textAlign: "center", marginBottom: 60 }}>
-            <div className="section-label" style={{ color: "var(--accent)" }}>
-              Our Impact
-            </div>
-            <h2 className="section-heading-white">Measuring What Matters</h2>
-            <div className="divider-light-center" />
-          </div>
+          <SectionHeader
+            label="Our Impact"
+            title="Measuring What Matters"
+            align="center"
+            theme="light"
+            labelColor="var(--accent)"
+          />
           <div style={{ display: "grid", gridTemplateColumns: "repeat(6, 1fr)", gap: 20 }} className="grid-4">
             {stats.map((s, i) => (
               <div
@@ -349,9 +344,7 @@ export default function HomePage() {
             </div>
           </div>
           <div>
-            <div className="section-label">Featured Research</div>
-            <h2 className="section-heading">National Crime Survey 2024</h2>
-            <div className="divider-gold" />
+            <SectionHeader label="Featured Research" title="National Crime Survey 2024" />
             <p className="section-sub">
               Our flagship annual survey delivers the most comprehensive, county-level analysis of crime patterns,
               security perceptions, and institutional responsiveness across all 47 counties of Kenya. The 2024 edition
@@ -382,9 +375,7 @@ export default function HomePage() {
             }}
           >
             <div>
-              <div className="section-label">Latest Research</div>
-              <h2 className="section-heading">Publications & Resources</h2>
-              <div className="divider-gold" />
+              <SectionHeader label="Latest Research" title="Publications & Resources" />
             </div>
             <Button variant="navy" onClick={() => navigate("/publications")}>
               Browse All Publications
@@ -439,9 +430,7 @@ export default function HomePage() {
             }}
           >
             <div>
-              <div className="section-label">Visual Impact</div>
-              <h2 className="section-heading">In Action</h2>
-              <div className="divider-gold" />
+              <SectionHeader label="Visual Impact" title="In Action" />
             </div>
             <Button variant="navy" onClick={() => navigate("/media")}>
               View Full Gallery
@@ -479,11 +468,7 @@ export default function HomePage() {
 
       <section className="section-pad-md home-section delay-7" style={{ background: "var(--grey-light)" }}>
         <div style={{ maxWidth: 1200, margin: "0 auto" }}>
-          <div style={{ textAlign: "center", marginBottom: 48 }}>
-            <div className="section-label">Our Network</div>
-            <h2 className="section-heading">Strategic Partners</h2>
-            <div className="divider-gold-center" />
-          </div>
+          <SectionHeader label="Our Network" title="Strategic Partners" align="center" />
           <div style={{ display: "flex", flexWrap: "wrap", gap: 16, justifyContent: "center" }}>
             {partners.map((p) => (
               <div key={p.name} className="partner-logo card-hover">
@@ -528,11 +513,13 @@ export default function HomePage() {
           }}
         />
         <div style={{ maxWidth: 800, margin: "0 auto", textAlign: "center", position: "relative", zIndex: 1 }}>
-          <div className="section-label" style={{ color: "var(--accent)" }}>
-            Join the Mission
-          </div>
-          <h2 className="section-heading-white">Partner With Us to Advance Human Security</h2>
-          <div className="divider-light-center" />
+          <SectionHeader
+            label="Join the Mission"
+            title="Partner With Us to Advance Human Security"
+            align="center"
+            theme="light"
+            labelColor="var(--accent)"
+          />
           <p style={{ fontSize: 17, color: "rgba(255,255,255,0.75)", lineHeight: 1.8, marginBottom: 40 }}>
             SRIC collaborates with governments, regional bodies, civil society organizations, and development partners
             to design evidence-driven solutions for complex security challenges across East Africa.
