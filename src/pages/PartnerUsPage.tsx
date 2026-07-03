@@ -1,6 +1,6 @@
 import PageHero from "../components/PageHero";
 
-type PartnerUsPageProps = { navigate: (page: string) => void };
+
 
 const types = [
   { title: "Institutional Partnerships", desc: "Co-design research programs with SRIC." },
@@ -9,10 +9,14 @@ const types = [
   { title: "Financial Support", desc: "Fund surveys and peace programs." },
 ];
 
-export default function PartnerUsPage(_props: PartnerUsPageProps) {
+export default function PartnerUsPage() {
   return (
     <div>
-      <PageHero title="Partner With SRIC" subtitle="Collaborate for Impact" breadcrumb="Get Involved / Partner With Us" />
+      <PageHero
+        title="Partner With SRIC"
+        subtitle="Collaborate for Impact"
+        breadcrumb="Get Involved / Partner With Us"
+      />
       <section className="section-pad-md" style={{ background: "#fff" }}>
         <div style={{ maxWidth: 1100, margin: "0 auto" }}>
           <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 64 }} className="grid-2">
@@ -20,11 +24,26 @@ export default function PartnerUsPage(_props: PartnerUsPageProps) {
               <div className="section-label">Invest in Security</div>
               <h2 className="section-heading">Invest in a Safer Tomorrow</h2>
               <div className="divider-gold" />
-              <p className="section-sub">Your partnership with SRIC amplifies evidence-based research and drives policy change across Kenya and the region.</p>
+              <p className="section-sub">
+                Your partnership with SRIC amplifies evidence-based research and drives policy change across Kenya and
+                the region.
+              </p>
               <div style={{ marginTop: 40 }}>
                 {types.map(({ title, desc }) => (
-                  <div key={title} style={{ marginBottom: 28, paddingBottom: 28, borderBottom: "1px solid var(--grey-mid)" }}>
-                    <h4 style={{ fontFamily: "'Playfair Display', serif", fontSize: 16, color: "var(--navy)", marginBottom: 6 }}>{title}</h4>
+                  <div
+                    key={title}
+                    style={{ marginBottom: 28, paddingBottom: 28, borderBottom: "1px solid var(--grey-mid)" }}
+                  >
+                    <h4
+                      style={{
+                        fontFamily: "'Playfair Display', serif",
+                        fontSize: 16,
+                        color: "var(--navy)",
+                        marginBottom: 6,
+                      }}
+                    >
+                      {title}
+                    </h4>
                     <p style={{ fontSize: 13, color: "var(--text-mid)", lineHeight: 1.7 }}>{desc}</p>
                   </div>
                 ))}
@@ -33,7 +52,16 @@ export default function PartnerUsPage(_props: PartnerUsPageProps) {
             <div>
               <div style={{ background: "var(--grey-light)", padding: "40px 36px" }}>
                 <div className="section-label">Get in Touch</div>
-                <h3 style={{ fontFamily: "'Playfair Display', serif", fontSize: 22, color: "var(--navy)", marginBottom: 24 }}>Explore Partnership</h3>
+                <h3
+                  style={{
+                    fontFamily: "'Playfair Display', serif",
+                    fontSize: 22,
+                    color: "var(--navy)",
+                    marginBottom: 24,
+                  }}
+                >
+                  Explore Partnership
+                </h3>
                 {["Organization Name", "Contact Person", "Email", "Phone"].map((f) => (
                   <div key={f} style={{ marginBottom: 16 }}>
                     <label className="form-label">{f}</label>
@@ -53,7 +81,9 @@ export default function PartnerUsPage(_props: PartnerUsPageProps) {
                   <label className="form-label">Message</label>
                   <textarea className="form-input" rows={4} style={{ resize: "vertical" }} />
                 </div>
-                <button className="btn-primary" style={{ width: "100%", textAlign: "center" }}>Submit Inquiry</button>
+                <button className="btn-primary" style={{ width: "100%", textAlign: "center" }}>
+                  Submit Inquiry
+                </button>
               </div>
             </div>
           </div>

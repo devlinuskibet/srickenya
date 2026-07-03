@@ -54,11 +54,32 @@ export default function MediaPage() {
             <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 12 }} className="grid-4">
               {photoItems.map((item, i) => (
                 <div key={i} className="gallery-card" style={{ borderRadius: 2, overflow: "hidden" }}>
-                  <div style={{ height: i % 3 === 0 ? 260 : 200, background: item.bg, display: "flex", alignItems: "center", justifyContent: "center", fontSize: 48, position: "relative" }}>
+                  <div
+                    style={{
+                      height: i % 3 === 0 ? 260 : 200,
+                      background: item.bg,
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      fontSize: 48,
+                      position: "relative",
+                    }}
+                  >
                     {item.emoji}
                     <div className="gallery-overlay">
-                      <div style={{ color: "var(--gold)", fontFamily: "'Oswald', sans-serif", fontSize: 13, letterSpacing: 1 }}>{item.label}</div>
-                      <div style={{ color: "rgba(255,255,255,0.6)", fontSize: 11, marginTop: 4 }}>{item.location} • {item.year}</div>
+                      <div
+                        style={{
+                          color: "var(--gold)",
+                          fontFamily: "'Oswald', sans-serif",
+                          fontSize: 13,
+                          letterSpacing: 1,
+                        }}
+                      >
+                        {item.label}
+                      </div>
+                      <div style={{ color: "rgba(255,255,255,0.6)", fontSize: 11, marginTop: 4 }}>
+                        {item.location} • {item.year}
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -76,13 +97,61 @@ export default function MediaPage() {
                 ["Violent Extremism Trends Webinar", "2024", "Webinar"],
                 ["SRIC at IGAD Security Dialogue", "2023", "Conference"],
               ].map(([title, year, type]) => (
-                <div key={title} className="card-hover" style={{ background: "var(--grey-light)", overflow: "hidden", boxShadow: "0 2px 12px rgba(13,46,30,0.07)" }}>
-                  <div style={{ height: 180, background: "linear-gradient(135deg, var(--navy-dark), var(--navy))", display: "flex", alignItems: "center", justifyContent: "center" }}>
-                    <div style={{ width: 60, height: 60, background: "rgba(46,158,91,0.9)", borderRadius: "50%", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 24 }}>▶</div>
+                <div
+                  key={title}
+                  className="card-hover"
+                  style={{
+                    background: "var(--grey-light)",
+                    overflow: "hidden",
+                    boxShadow: "0 2px 12px rgba(13,46,30,0.07)",
+                  }}
+                >
+                  <div
+                    style={{
+                      height: 180,
+                      background: "linear-gradient(135deg, var(--navy-dark), var(--navy))",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                    }}
+                  >
+                    <div
+                      style={{
+                        width: 60,
+                        height: 60,
+                        background: "rgba(46,158,91,0.9)",
+                        borderRadius: "50%",
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        fontSize: 24,
+                      }}
+                    >
+                      ▶
+                    </div>
                   </div>
                   <div style={{ padding: "16px 20px" }}>
-                    <div style={{ fontSize: 10, color: "var(--gold)", fontFamily: "'Oswald', sans-serif", letterSpacing: 1.5, marginBottom: 6 }}>{type} • {year}</div>
-                    <h4 style={{ fontFamily: "'Playfair Display', serif", fontSize: 15, color: "var(--navy)", lineHeight: 1.4 }}>{title}</h4>
+                    <div
+                      style={{
+                        fontSize: 10,
+                        color: "var(--gold)",
+                        fontFamily: "'Oswald', sans-serif",
+                        letterSpacing: 1.5,
+                        marginBottom: 6,
+                      }}
+                    >
+                      {type} • {year}
+                    </div>
+                    <h4
+                      style={{
+                        fontFamily: "'Playfair Display', serif",
+                        fontSize: 15,
+                        color: "var(--navy)",
+                        lineHeight: 1.4,
+                      }}
+                    >
+                      {title}
+                    </h4>
                   </div>
                 </div>
               ))}

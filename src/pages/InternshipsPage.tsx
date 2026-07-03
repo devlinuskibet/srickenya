@@ -9,7 +9,10 @@ export default function InternshipsPage() {
           <div className="section-label">The Program</div>
           <h2 className="section-heading">Build Your Career in Security Research</h2>
           <div className="divider-gold" />
-          <p className="section-sub">SRIC internship program offers graduates the opportunity to contribute to security research. Duration 6-12 months. Apply below.</p>
+          <p className="section-sub">
+            SRIC internship program offers graduates the opportunity to contribute to security research. Duration 6-12
+            months. Apply below.
+          </p>
           <div style={{ background: "var(--grey-light)", padding: "40px", marginTop: 40 }}>
             <label className="form-label">Full Name</label>
             <input className="form-input" style={{ marginBottom: 16 }} />
@@ -21,7 +24,9 @@ export default function InternshipsPage() {
               <option>Arms Control</option>
               <option>Peacebuilding</option>
             </select>
-            <button className="btn-primary" style={{ width: "100%" }}>Submit Application</button>
+            <button className="btn-primary" style={{ width: "100%" }}>
+              Submit Application
+            </button>
           </div>
         </div>
       </section>
