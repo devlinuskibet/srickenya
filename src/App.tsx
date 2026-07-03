@@ -25,6 +25,7 @@ import CareersPage from "./pages/CareersPage";
 import InternshipsPage from "./pages/InternshipsPage";
 import PartnerUsPage from "./pages/PartnerUsPage";
 import ContactPage from "./pages/ContactPage";
+import NotFoundPage from "./pages/NotFoundPage";
 
 export default function App() {
   const location = useLocation();
@@ -77,7 +78,7 @@ export default function App() {
           <Route path="/internships" element={<InternshipsPage />} />
           <Route path="/partner-us" element={<PartnerUsPage />} />
           <Route path="/contact" element={<ContactPage />} />
-          <Route path="*" element={<HomePage />} />
+          <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </main>
       <Footer />
