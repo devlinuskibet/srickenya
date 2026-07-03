@@ -31,6 +31,7 @@ export default function Footer() {
               <img
                 src={sricLogo}
                 alt="SRIC Kenya"
+                loading="lazy"
                 style={{ height: 44, width: "auto", maxWidth: 180, objectFit: "contain" }}
               />
             </div>
