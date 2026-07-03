@@ -1,8 +1,11 @@
+import SEO from "../../components/SEO";
 import PageHero from "../../components/PageHero";
 
 export default function MissionPage() {
   return (
     <div>
+      <SEO title="Mission" description="Learn more about Mission at SRIC - Security Research & Information Centre." />
+
       <PageHero title="Mission & Vision" subtitle="Our Purpose" breadcrumb="About / Mission & Vision" />
       <section className="section-pad-lg" style={{ background: "#fff" }}>
         <div style={{ maxWidth: 900, margin: "0 auto" }}>

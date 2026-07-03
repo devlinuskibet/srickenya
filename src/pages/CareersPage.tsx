@@ -1,3 +1,4 @@
+import SEO from "../components/SEO";
 import Button from "../components/Button";
 import PageHero from "../components/PageHero";
 
@@ -20,6 +21,8 @@ const benefits = [
 export default function CareersPage() {
   return (
     <div>
+      <SEO title="Careers" description="Learn more about Careers at SRIC - Security Research & Information Centre." />
+
       <PageHero title="Join Our Mission" subtitle="Careers at SRIC" breadcrumb="Get Involved / Careers" />
       <section className="section-pad-md" style={{ background: "#fff" }}>
         <div style={{ maxWidth: 1100, margin: "0 auto" }}>

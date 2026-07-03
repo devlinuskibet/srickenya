@@ -1,3 +1,4 @@
+import SEO from "../../components/SEO";
 import Button from "../../components/Button";
 import PageHero from "../../components/PageHero";
 
@@ -50,6 +51,11 @@ const leadership = [
 export default function GovernancePage() {
   return (
     <div>
+      <SEO
+        title="Governance"
+        description="Learn more about Governance at SRIC - Security Research & Information Centre."
+      />
+
       <PageHero
         title="Governance & Leadership"
         subtitle="Transparency & Accountability"

@@ -1,3 +1,4 @@
+import SEO from "../components/SEO";
 import PageHero from "../components/PageHero";
 import { stats } from "../data";
 
@@ -11,6 +12,8 @@ export default function ImpactPage() {
 
   return (
     <div>
+      <SEO title="Impact" description="Learn more about Impact at SRIC - Security Research & Information Centre." />
+
       <PageHero title="Measuring Our Impact" subtitle="From Field to Policy" breadcrumb="Impact" />
       <section className="section-pad-md" style={{ background: "var(--navy)" }}>
         <div style={{ maxWidth: 1200, margin: "0 auto" }}>

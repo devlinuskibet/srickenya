@@ -1,3 +1,4 @@
+import SEO from "../../components/SEO";
 import Button from "../../components/Button";
 import PageHero from "../../components/PageHero";
 
@@ -13,6 +14,8 @@ export type ProgramPageProps = {
 export default function ProgramPage({ title, icon, subtitle, framing, areas, flagship }: ProgramPageProps) {
   return (
     <div>
+      <SEO title="Program" description="Learn more about Program at SRIC - Security Research & Information Centre." />
+
       <PageHero title={title} subtitle={subtitle} breadcrumb={`Our Work / ${title}`} />
       <section className="section-pad-md" style={{ background: "#fff" }}>
         <div style={{ maxWidth: 1100, margin: "0 auto" }}>

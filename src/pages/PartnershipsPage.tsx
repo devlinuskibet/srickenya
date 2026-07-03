@@ -1,3 +1,4 @@
+import SEO from "../components/SEO";
 import Button from "../components/Button";
 import PageHero from "../components/PageHero";
 import { partners } from "../data";
@@ -36,6 +37,11 @@ export default function PartnershipsPage() {
   const navigate = useNavigate();
   return (
     <div>
+      <SEO
+        title="Partnerships"
+        description="Learn more about Partnerships at SRIC - Security Research & Information Centre."
+      />
+
       <PageHero title="Strategic Partnerships" subtitle="Our Network" breadcrumb="Partnerships" />
       <section className="section-pad-md" style={{ background: "#fff" }}>
         <div style={{ maxWidth: 1200, margin: "0 auto" }}>

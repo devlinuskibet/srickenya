@@ -1,9 +1,15 @@
+import SEO from "../components/SEO";
 import Button from "../components/Button";
 import PageHero from "../components/PageHero";
 
 export default function InternshipsPage() {
   return (
     <div>
+      <SEO
+        title="Internships"
+        description="Learn more about Internships at SRIC - Security Research & Information Centre."
+      />
+
       <PageHero title="Internships" subtitle="Get Involved" breadcrumb="Get Involved / Internships" />
       <section className="section-pad-md" style={{ background: "#fff" }}>
         <div style={{ maxWidth: 1100, margin: "0 auto" }}>

@@ -1,3 +1,4 @@
+import SEO from "../components/SEO";
 import { useState } from "react";
 import PageHero from "../components/PageHero";
 import { galleryItems } from "../data";
@@ -8,6 +9,8 @@ export default function MediaPage() {
 
   return (
     <div>
+      <SEO title="Media" description="Learn more about Media at SRIC - Security Research & Information Centre." />
+
       <PageHero title="Media Gallery" subtitle="Photography & Video" breadcrumb="Media" />
       <section className="section-pad-md" style={{ background: "#fff" }}>
         <div style={{ maxWidth: 1200, margin: "0 auto" }}>

@@ -1,3 +1,4 @@
+import SEO from "../components/SEO";
 import Button from "../components/Button";
 import { useState } from "react";
 import PageHero from "../components/PageHero";
@@ -15,6 +16,8 @@ export default function ContactPage() {
 
   return (
     <div>
+      <SEO title="Contact" description="Learn more about Contact at SRIC - Security Research & Information Centre." />
+
       <PageHero title="Get in Touch" subtitle="Contact Us" breadcrumb="Contact" />
       <section className="section-pad-md" style={{ background: "#fff" }}>
         <div

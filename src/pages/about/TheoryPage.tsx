@@ -1,3 +1,4 @@
+import SEO from "../../components/SEO";
 import PageHero from "../../components/PageHero";
 
 const stages = [
@@ -36,6 +37,8 @@ const stages = [
 export default function TheoryPage() {
   return (
     <div>
+      <SEO title="Theory" description="Learn more about Theory at SRIC - Security Research & Information Centre." />
+
       <PageHero title="Theory of Change" subtitle="Our Strategic Logic" breadcrumb="About / Theory of Change" />
       <section className="section-pad-md" style={{ background: "#fff" }}>
         <div style={{ maxWidth: 1100, margin: "0 auto" }}>

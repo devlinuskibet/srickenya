@@ -1,9 +1,12 @@
+import SEO from "../../components/SEO";
 import PageHero from "../../components/PageHero";
 import { coreValues } from "../../data";
 
 export default function ValuesPage() {
   return (
     <div>
+      <SEO title="Values" description="Learn more about Values at SRIC - Security Research & Information Centre." />
+
       <PageHero title="Core Values" subtitle="What We Stand For" breadcrumb="About / Core Values" />
       <section className="section-pad-md" style={{ background: "#fff" }}>
         <div style={{ maxWidth: 1100, margin: "0 auto" }}>

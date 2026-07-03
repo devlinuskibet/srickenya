@@ -1,8 +1,14 @@
+import SEO from "../../components/SEO";
 import PageHero from "../../components/PageHero";
 
 export default function OurStoryPage() {
   return (
     <div>
+      <SEO
+        title="Our Story"
+        description="Learn more about Our Story at SRIC - Security Research & Information Centre."
+      />
+
       <PageHero title="Our Story" subtitle="About SRIC" breadcrumb="About / Our Story" />
       <section className="section-pad-md" style={{ background: "#fff" }}>
         <div

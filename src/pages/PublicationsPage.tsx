@@ -1,3 +1,4 @@
+import SEO from "../components/SEO";
 import Button from "../components/Button";
 import { useState } from "react";
 import PageHero from "../components/PageHero";
@@ -27,6 +28,11 @@ export default function PublicationsPage() {
   const filtered = filter === "All" ? allPubs : allPubs.filter((p) => p.tag === filter);
   return (
     <div>
+      <SEO
+        title="Publications"
+        description="Learn more about Publications at SRIC - Security Research & Information Centre."
+      />
+
       <PageHero title="Publications & Resources" subtitle="Research Library" breadcrumb="Publications" />
       <section className="section-pad-md" style={{ background: "#fff" }}>
         <div style={{ maxWidth: 1200, margin: "0 auto" }}>

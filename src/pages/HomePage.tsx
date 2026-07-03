@@ -1,3 +1,4 @@
+import SEO from "../components/SEO";
 import Button from "../components/Button";
 import SectionHeader from "../components/SectionHeader";
 import { useState, useEffect, useRef } from "react";
@@ -31,6 +32,8 @@ export default function HomePage() {
 
   return (
     <div className="page-load">
+      <SEO title="Home" description="Learn more about Home at SRIC - Security Research & Information Centre." />
+
       <section
         className="hero-min-h home-section delay-0"
         style={{

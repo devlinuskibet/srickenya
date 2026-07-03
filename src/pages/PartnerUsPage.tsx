@@ -1,3 +1,4 @@
+import SEO from "../components/SEO";
 import Button from "../components/Button";
 import PageHero from "../components/PageHero";
 
@@ -11,6 +12,11 @@ const types = [
 export default function PartnerUsPage() {
   return (
     <div>
+      <SEO
+        title="Partner Us"
+        description="Learn more about Partner Us at SRIC - Security Research & Information Centre."
+      />
+
       <PageHero
         title="Partner With SRIC"
         subtitle="Collaborate for Impact"
