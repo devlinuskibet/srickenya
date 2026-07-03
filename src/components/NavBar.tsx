@@ -59,7 +59,16 @@ export default function NavBar() {
           height: 72,
         }}
       >
-        <div onClick={() => navigate("/")} style={{ cursor: "pointer", display: "flex", alignItems: "center", gap: 8 }}>
+        <div
+          role="button"
+          tabIndex={0}
+          aria-label="Home"
+          onClick={() => navigate("/")}
+          onKeyDown={(e) => {
+            if (e.key === "Enter") navigate("/");
+          }}
+          style={{ cursor: "pointer", display: "flex", alignItems: "center", gap: 8 }}
+        >
           <img
             src={sricLogo}
             alt="SRIC - Security Research & Information Centre"
@@ -96,7 +105,13 @@ export default function NavBar() {
                     <div
                       key={s.label}
                       className="nav-dropdown-item"
+                      role="button"
+                      tabIndex={0}
+                      aria-label={s.label}
                       onClick={() => navigate(s.page)}
+                      onKeyDown={(e) => {
+                        if (e.key === "Enter") navigate(s.page);
+                      }}
                       style={{ cursor: "pointer" }}
                     >
                       {s.label}
@@ -136,11 +151,22 @@ export default function NavBar() {
           {navItems.map((item) => (
             <div key={item.label}>
               <div
+                role="button"
+                tabIndex={0}
+                aria-label={item.label}
                 onClick={() => {
                   if (item.page) {
                     navigate(item.page);
                     setMobileOpen(false);
                   } else setMobileExpanded(mobileExpanded === item.label ? null : item.label);
+                }}
+                onKeyDown={(e) => {
+                  if (e.key === "Enter") {
+                    if (item.page) {
+                      navigate(item.page);
+                      setMobileOpen(false);
+                    } else setMobileExpanded(mobileExpanded === item.label ? null : item.label);
+                  }
                 }}
                 style={{
                   color: "#fff",
@@ -162,9 +188,18 @@ export default function NavBar() {
                 item.sub.map((s) => (
                   <div
                     key={s.label}
+                    role="button"
+                    tabIndex={0}
+                    aria-label={s.label}
                     onClick={() => {
                       navigate(s.page);
                       setMobileOpen(false);
+                    }}
+                    onKeyDown={(e) => {
+                      if (e.key === "Enter") {
+                        navigate(s.page);
+                        setMobileOpen(false);
+                      }
                     }}
                     style={{
                       color: "rgba(255,255,255,0.9)",

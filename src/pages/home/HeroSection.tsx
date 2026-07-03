@@ -115,7 +115,16 @@ export default function HeroSection() {
         {heroSlides.map((_, i) => (
           <div
             key={i}
+            role="button"
+            tabIndex={0}
+            aria-label={`Go to slide ${i + 1}`}
             onClick={() => setSlide(i)}
+            onKeyDown={(e) => {
+              if (e.key === "Enter" || e.key === " ") {
+                e.preventDefault();
+                setSlide(i);
+              }
+            }}
             style={{
               width: i === slide ? 32 : 10,
               height: 4,

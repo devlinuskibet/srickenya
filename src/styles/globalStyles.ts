@@ -8,6 +8,17 @@ export const injectStyles = () => {
     a { text-decoration: none; color: inherit; }
     img { max-width: 100%; }
 
+    /* Accessibility Styles */
+    *:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 2px;
+    }
+    
+    a:focus-visible, button:focus-visible, [role="button"]:focus-visible {
+      outline: 3px solid var(--gold);
+      outline-offset: 3px;
+    }
+
     :root {
       --deep-blue: #0a1628;
       --deep-blue-2: #0d1b2a;

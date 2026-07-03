@@ -62,7 +62,13 @@ export default function Footer() {
             {["/", "/our-story", "/impact", "/publications", "/media", "/contact"].map((p, i) => (
               <div
                 key={p}
+                role="button"
+                tabIndex={0}
+                aria-label={["Home", "About", "Impact", "Publications", "Media", "Contact"][i]}
                 onClick={() => navigate(p)}
+                onKeyDown={(e) => {
+                  if (e.key === "Enter") navigate(p);
+                }}
                 style={{
                   color: "rgba(255,255,255,0.7)",
                   fontSize: 13,
@@ -100,7 +106,13 @@ export default function Footer() {
             ].map(([p, l]) => (
               <div
                 key={p}
+                role="button"
+                tabIndex={0}
+                aria-label={l}
                 onClick={() => navigate(p)}
+                onKeyDown={(e) => {
+                  if (e.key === "Enter") navigate(p);
+                }}
                 style={{
                   color: "rgba(255,255,255,0.6)",
                   fontSize: 13,

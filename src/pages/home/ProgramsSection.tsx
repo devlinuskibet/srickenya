@@ -10,7 +10,20 @@ export default function ProgramsSection() {
         <SectionHeader label="What We Do" title="Our Areas of Work" align="center" />
         <div style={{ display: "grid", gridTemplateColumns: "repeat(5, 1fr)", gap: 20 }} className="grid-5">
           {programs.map((p) => (
-            <div key={p.title} className="prog-card card-hover" onClick={() => navigate(p.page)}>
+            <div
+              key={p.title}
+              className="prog-card card-hover"
+              role="button"
+              tabIndex={0}
+              aria-label={`Learn more about ${p.title}`}
+              onClick={() => navigate(p.page)}
+              onKeyDown={(e) => {
+                if (e.key === "Enter" || e.key === " ") {
+                  e.preventDefault();
+                  navigate(p.page);
+                }
+              }}
+            >
               <div className="prog-icon">{p.icon}</div>
               <h3
                 style={{
