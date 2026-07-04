@@ -2,10 +2,13 @@ import SEO from "../components/SEO";
 import Button from "../components/Button";
 import { useState } from "react";
 import PageHero from "../components/PageHero";
+import { useToast } from "../components/Toast";
 
 export default function ContactPage() {
   const [sent, setSent] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const [form, setForm] = useState({ name: "", email: "", subject: "", dept: "General", message: "" });
+  const { showToast } = useToast();
 
   const contactDetails = [
     ["Address", "New Waumini House, 2nd Floor\nChiromo Road, Westlands\nNairobi, Kenya"],
@@ -126,12 +129,35 @@ export default function ContactPage() {
                 >
                   Message Received
                 </h4>
-                <p style={{ fontSize: 15, color: "var(--text-mid)" }}>
+                <p style={{ fontSize: 15, color: "var(--text-mid)", marginBottom: 32 }}>
                   Thank you for reaching out. A member of our team will respond within 2 business days.
                 </p>
+                <Button
+                  variant="outline"
+                  onClick={() => {
+                    setSent(false);
+                    setForm({ name: "", email: "", subject: "", dept: "General", message: "" });
+                  }}
+                >
+                  Send Another Message
+                </Button>
               </div>
             ) : (
-              <div>
+              <form
+                onSubmit={(e) => {
+                  e.preventDefault();
+                  if (!form.name || !form.email || !form.message) {
+                    showToast("Please fill in all required fields", "error");
+                    return;
+                  }
+                  setIsLoading(true);
+                  setTimeout(() => {
+                    setIsLoading(false);
+                    setSent(true);
+                    showToast("Message sent successfully!", "success");
+                  }, 1500);
+                }}
+              >
                 <div
                   className="form-row"
                   style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 20, marginBottom: 20 }}
@@ -143,15 +169,18 @@ export default function ContactPage() {
                       value={form.name}
                       onChange={(e) => setForm({ ...form, name: e.target.value })}
                       placeholder="Your full name"
+                      required
                     />
                   </div>
                   <div>
                     <label className="form-label">Email Address *</label>
                     <input
+                      type="email"
                       className="form-input"
                       value={form.email}
                       onChange={(e) => setForm({ ...form, email: e.target.value })}
                       placeholder="your@email.com"
+                      required
                     />
                   </div>
                 </div>
@@ -176,6 +205,7 @@ export default function ContactPage() {
                     value={form.subject}
                     onChange={(e) => setForm({ ...form, subject: e.target.value })}
                     placeholder="Message subject"
+                    required
                   />
                 </div>
                 <div style={{ marginBottom: 32 }}>
@@ -187,22 +217,22 @@ export default function ContactPage() {
                     onChange={(e) => setForm({ ...form, message: e.target.value })}
                     placeholder="Please describe your inquiry in detail..."
                     style={{ resize: "vertical" }}
+                    required
                   />
                 </div>
                 <Button
                   variant="primary"
                   fullWidth
-                  style={{ padding: "14px 28px" }}
-                  onClick={() => {
-                    if (form.name && form.email && form.message) setSent(true);
-                  }}
+                  style={{ padding: "14px 28px", opacity: isLoading ? 0.7 : 1 }}
+                  type="submit"
+                  disabled={isLoading}
                 >
-                  Send Message
+                  {isLoading ? "Sending..." : "Send Message"}
                 </Button>
                 <p style={{ fontSize: 11, color: "var(--text-light)", marginTop: 12, textAlign: "center" }}>
                   Your message is confidential and will only be shared with relevant SRIC team members.
                 </p>
-              </div>
+              </form>
             )}
           </div>
         </div>
