@@ -2,9 +2,11 @@ import SEO from "../components/SEO";
 import { useState } from "react";
 import PageHero from "../components/PageHero";
 import { galleryItems } from "../data";
+import { motion, AnimatePresence } from "framer-motion";
 
 export default function MediaPage() {
   const [tab, setTab] = useState("photos");
+  const [selectedPhoto, setSelectedPhoto] = useState<any>(null);
   const photoItems = [...galleryItems, ...galleryItems.slice(0, 4)];
 
   return (
@@ -56,7 +58,19 @@ export default function MediaPage() {
           {tab === "photos" && (
             <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 12 }} className="grid-4">
               {photoItems.map((item, i) => (
-                <div key={i} className="gallery-card" style={{ borderRadius: 2, overflow: "hidden" }}>
+                <motion.div
+                  key={i}
+                  layoutId={`photo-${i}`}
+                  className="gallery-card"
+                  style={{ borderRadius: 2, overflow: "hidden", cursor: "pointer" }}
+                  onClick={() => setSelectedPhoto({ ...item, index: i })}
+                  role="button"
+                  tabIndex={0}
+                  aria-label={`View ${item.label}`}
+                  onKeyDown={(e) => {
+                    if (e.key === "Enter") setSelectedPhoto({ ...item, index: i });
+                  }}
+                >
                   <div
                     style={{
                       height: i % 3 === 0 ? 260 : 200,
@@ -85,10 +99,83 @@ export default function MediaPage() {
                       </div>
                     </div>
                   </div>
-                </div>
+                </motion.div>
               ))}
             </div>
           )}
+
+          <AnimatePresence>
+            {selectedPhoto && (
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                style={{
+                  position: "fixed",
+                  top: 0,
+                  left: 0,
+                  right: 0,
+                  bottom: 0,
+                  background: "rgba(0, 0, 0, 0.9)",
+                  zIndex: 1000,
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  padding: 40,
+                }}
+                onClick={() => setSelectedPhoto(null)}
+              >
+                <motion.div
+                  layoutId={`photo-${selectedPhoto.index}`}
+                  style={{
+                    background: selectedPhoto.bg,
+                    width: "100%",
+                    maxWidth: 800,
+                    height: "80vh",
+                    borderRadius: 8,
+                    display: "flex",
+                    flexDirection: "column",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    position: "relative",
+                    cursor: "default",
+                  }}
+                  onClick={(e) => e.stopPropagation()}
+                >
+                  <div style={{ fontSize: 120 }}>{selectedPhoto.emoji}</div>
+                  <div style={{ marginTop: 24, textAlign: "center", color: "#fff" }}>
+                    <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: 32 }}>{selectedPhoto.label}</h2>
+                    <p style={{ marginTop: 8, opacity: 0.8, fontSize: 18 }}>
+                      {selectedPhoto.location} • {selectedPhoto.year}
+                    </p>
+                  </div>
+
+                  <button
+                    onClick={() => setSelectedPhoto(null)}
+                    style={{
+                      position: "absolute",
+                      top: 20,
+                      right: 20,
+                      background: "rgba(0,0,0,0.5)",
+                      border: "none",
+                      color: "#fff",
+                      width: 40,
+                      height: 40,
+                      borderRadius: "50%",
+                      fontSize: 20,
+                      cursor: "pointer",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                    }}
+                    aria-label="Close lightbox"
+                  >
+                    ×
+                  </button>
+                </motion.div>
+              </motion.div>
+            )}
+          </AnimatePresence>
 
           {tab === "videos" && (
             <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 24 }} className="grid-3">
