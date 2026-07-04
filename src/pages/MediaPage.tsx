@@ -172,6 +172,58 @@ export default function MediaPage() {
                   >
                     ×
                   </button>
+                  {selectedPhoto.index > 0 && (
+                    <button
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        setSelectedPhoto(photos[selectedPhoto.index - 1]);
+                      }}
+                      style={{
+                        position: "absolute",
+                        left: 20,
+                        background: "rgba(0,0,0,0.5)",
+                        border: "none",
+                        color: "#fff",
+                        width: 48,
+                        height: 48,
+                        borderRadius: "50%",
+                        fontSize: 24,
+                        cursor: "pointer",
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                      }}
+                      aria-label="Previous photo"
+                    >
+                      ‹
+                    </button>
+                  )}
+                  {selectedPhoto.index < photos.length - 1 && (
+                    <button
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        setSelectedPhoto(photos[selectedPhoto.index + 1]);
+                      }}
+                      style={{
+                        position: "absolute",
+                        right: 20,
+                        background: "rgba(0,0,0,0.5)",
+                        border: "none",
+                        color: "#fff",
+                        width: 48,
+                        height: 48,
+                        borderRadius: "50%",
+                        fontSize: 24,
+                        cursor: "pointer",
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                      }}
+                      aria-label="Next photo"
+                    >
+                      ›
+                    </button>
+                  )}
                 </motion.div>
               </motion.div>
             )}
