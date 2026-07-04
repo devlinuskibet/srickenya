@@ -1,5 +1,6 @@
 import { AnimatePresence } from "framer-motion";
 import PageTransition from "./components/PageTransition";
+import ScrollToTop from "./components/ScrollToTop";
 import { useEffect } from "react";
 import { Routes, Route, useLocation } from "react-router-dom";
 import { injectStyles } from "./styles/globalStyles";
@@ -226,6 +227,7 @@ export default function App() {
         </AnimatePresence>
       </main>
       <Footer />
+      <ScrollToTop />
     </div>
   );
 }
