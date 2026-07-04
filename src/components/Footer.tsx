@@ -2,11 +2,14 @@ import Button from "../components/Button";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import sricLogo from "../assets/logos/sric.png";
+import { useToast } from "../components/Toast";
 
 export default function Footer() {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [subscribed, setSubscribed] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+  const { showToast } = useToast();
 
   const setLinkColor = (el: EventTarget | null, color: string) => {
     if (el && "style" in el) (el as HTMLElement).style.color = color;
@@ -148,11 +151,28 @@ export default function Footer() {
             {subscribed ? (
               <div style={{ color: "var(--accent)", fontSize: 13 }}>✓ Thank you for subscribing!</div>
             ) : (
-              <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
+              <form
+                style={{ display: "flex", flexDirection: "column", gap: 8 }}
+                onSubmit={(e) => {
+                  e.preventDefault();
+                  if (!email.includes("@")) {
+                    showToast("Please enter a valid email address", "error");
+                    return;
+                  }
+                  setIsLoading(true);
+                  setTimeout(() => {
+                    setIsLoading(false);
+                    setSubscribed(true);
+                    showToast("Successfully subscribed to newsletter!", "success");
+                  }, 1200);
+                }}
+              >
                 <input
+                  type="email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="Your email address"
+                  required
                   style={{
                     padding: "10px 14px",
                     background: "rgba(255,255,255,0.08)",
@@ -165,12 +185,13 @@ export default function Footer() {
                 />
                 <Button
                   variant="primary"
-                  onClick={() => setSubscribed(true)}
-                  style={{ width: "100%", textAlign: "center" }}
+                  type="submit"
+                  disabled={isLoading}
+                  style={{ width: "100%", textAlign: "center", opacity: isLoading ? 0.7 : 1 }}
                 >
-                  Subscribe
+                  {isLoading ? "Subscribing..." : "Subscribe"}
                 </Button>
-              </div>
+              </form>
             )}
 
             <div style={{ display: "flex", gap: 12, marginTop: 24 }}>
