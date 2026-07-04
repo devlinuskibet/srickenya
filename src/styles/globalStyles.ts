@@ -58,6 +58,7 @@ export const injectStyles = () => {
     @keyframes pageReveal { from { opacity: 0; } to { opacity: 1; } }
     @keyframes staggerIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
     @keyframes heroShine { 0%, 100% { opacity: 0.4; } 50% { opacity: 0.7; } }
+    @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: .5; } }
 
     .page-load { animation: pageReveal 0.5s ease-out forwards; }
     .hero-entrance { animation: heroEntrance 0.9s cubic-bezier(0.22, 1, 0.36, 1) forwards; }

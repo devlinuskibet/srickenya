@@ -3,6 +3,7 @@ import Button from "../components/Button";
 import { useState } from "react";
 import PageHero from "../components/PageHero";
 import { publications } from "../data";
+import { useDataFetch } from "../hooks/useDataFetch";
 
 const extraPubs = [
   {
@@ -28,9 +29,10 @@ export default function PublicationsPage() {
   const [searchQuery, setSearchQuery] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 6;
+  const { data: fetchedPubs, loading } = useDataFetch(allPubs, 1000);
 
   // Filter and search
-  const filtered = allPubs.filter((p) => {
+  const filtered = (fetchedPubs || []).filter((p) => {
     const matchesFilter = filter === "All" || p.tag === filter;
     const matchesSearch =
       p.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
@@ -100,7 +102,25 @@ export default function PublicationsPage() {
             }}
           />
 
-          {filtered.length === 0 ? (
+          {loading ? (
+            <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 24 }} className="grid-4">
+              {[1, 2, 3, 4, 5, 6].map((i) => (
+                <div key={i} className="pub-card" style={{ opacity: 0.7 }}>
+                  <div className="pub-thumb" style={{ background: "#e0e0e0", animation: "pulse 1.5s infinite" }} />
+                  <div style={{ padding: "20px" }}>
+                    <div style={{ height: 14, width: 80, background: "#e0e0e0", marginBottom: 12, borderRadius: 2 }} />
+                    <div
+                      style={{ height: 20, width: "100%", background: "#e0e0e0", marginBottom: 8, borderRadius: 2 }}
+                    />
+                    <div
+                      style={{ height: 20, width: "80%", background: "#e0e0e0", marginBottom: 16, borderRadius: 2 }}
+                    />
+                    <div style={{ height: 14, width: 40, background: "#e0e0e0", borderRadius: 2 }} />
+                  </div>
+                </div>
+              ))}
+            </div>
+          ) : filtered.length === 0 ? (
             <div
               style={{ textAlign: "center", padding: "60px 20px", background: "var(--grey-light)", borderRadius: 8 }}
             >
