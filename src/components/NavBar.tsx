@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { navItems } from "../data";
 import sricLogo from "../assets/logos/sric.png";
+import { motion, AnimatePresence } from "framer-motion";
 
 export default function NavBar() {
   const [scrolled, setScrolled] = useState(false);
@@ -138,85 +139,101 @@ export default function NavBar() {
         </button>
       </div>
 
-      {mobileOpen && (
-        <div
-          style={{
-            background: "var(--navy-dark)",
-            borderTop: "1px solid rgba(255,255,255,0.1)",
-            padding: "16px 0",
-            maxHeight: "80vh",
-            overflowY: "auto",
-          }}
-        >
-          {navItems.map((item) => (
-            <div key={item.label}>
-              <div
-                role="button"
-                tabIndex={0}
-                aria-label={item.label}
-                onClick={() => {
-                  if (item.page) {
-                    navigate(item.page);
-                    setMobileOpen(false);
-                  } else setMobileExpanded(mobileExpanded === item.label ? null : item.label);
-                }}
-                onKeyDown={(e) => {
-                  if (e.key === "Enter") {
+      <AnimatePresence>
+        {mobileOpen && (
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: "auto" }}
+            exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 0.3, ease: "easeInOut" }}
+            style={{
+              background: "var(--navy-dark)",
+              borderTop: "1px solid rgba(255,255,255,0.1)",
+              padding: "16px 0",
+              maxHeight: "80vh",
+              overflowY: "auto",
+              overflowX: "hidden",
+            }}
+          >
+            {navItems.map((item) => (
+              <div key={item.label}>
+                <div
+                  role="button"
+                  tabIndex={0}
+                  aria-label={item.label}
+                  onClick={() => {
                     if (item.page) {
                       navigate(item.page);
                       setMobileOpen(false);
                     } else setMobileExpanded(mobileExpanded === item.label ? null : item.label);
-                  }
-                }}
-                style={{
-                  color: "#fff",
-                  padding: "12px 24px",
-                  fontFamily: "'Oswald', sans-serif",
-                  letterSpacing: 1.5,
-                  fontSize: 13,
-                  textTransform: "uppercase",
-                  cursor: "pointer",
-                  display: "flex",
-                  justifyContent: "space-between",
-                  borderBottom: "1px solid rgba(255,255,255,0.05)",
-                }}
-              >
-                {item.label} {item.sub && <span>{mobileExpanded === item.label ? "▴" : "▾"}</span>}
-              </div>
-              {item.sub &&
-                mobileExpanded === item.label &&
-                item.sub.map((s) => (
-                  <div
-                    key={s.label}
-                    role="button"
-                    tabIndex={0}
-                    aria-label={s.label}
-                    onClick={() => {
-                      navigate(s.page);
-                      setMobileOpen(false);
-                    }}
-                    onKeyDown={(e) => {
-                      if (e.key === "Enter") {
-                        navigate(s.page);
+                  }}
+                  onKeyDown={(e) => {
+                    if (e.key === "Enter") {
+                      if (item.page) {
+                        navigate(item.page);
                         setMobileOpen(false);
-                      }
-                    }}
-                    style={{
-                      color: "rgba(255,255,255,0.9)",
-                      padding: "10px 40px",
-                      fontSize: 12,
-                      letterSpacing: 1,
-                      cursor: "pointer",
-                      borderBottom: "1px solid rgba(255,255,255,0.03)",
-                    }}
-                  >
-                    {s.label}
-                  </div>
-                ))}
-            </div>
-          ))}
-        </div>
-      )}
+                      } else setMobileExpanded(mobileExpanded === item.label ? null : item.label);
+                    }
+                  }}
+                  style={{
+                    color: "#fff",
+                    padding: "12px 24px",
+                    fontFamily: "'Oswald', sans-serif",
+                    letterSpacing: 1.5,
+                    fontSize: 13,
+                    textTransform: "uppercase",
+                    cursor: "pointer",
+                    display: "flex",
+                    justifyContent: "space-between",
+                    borderBottom: "1px solid rgba(255,255,255,0.05)",
+                  }}
+                >
+                  {item.label} {item.sub && <span>{mobileExpanded === item.label ? "▴" : "▾"}</span>}
+                </div>
+                <AnimatePresence>
+                  {item.sub && mobileExpanded === item.label && (
+                    <motion.div
+                      initial={{ opacity: 0, height: 0 }}
+                      animate={{ opacity: 1, height: "auto" }}
+                      exit={{ opacity: 0, height: 0 }}
+                      style={{ overflow: "hidden" }}
+                    >
+                      {item.sub.map((s) => (
+                        <div
+                          key={s.label}
+                          role="button"
+                          tabIndex={0}
+                          aria-label={s.label}
+                          onClick={() => {
+                            navigate(s.page);
+                            setMobileOpen(false);
+                          }}
+                          onKeyDown={(e) => {
+                            if (e.key === "Enter") {
+                              navigate(s.page);
+                              setMobileOpen(false);
+                            }
+                          }}
+                          style={{
+                            color: "rgba(255,255,255,0.9)",
+                            padding: "10px 40px",
+                            fontSize: 12,
+                            letterSpacing: 1,
+                            cursor: "pointer",
+                            borderBottom: "1px solid rgba(255,255,255,0.03)",
+                          }}
+                        >
+                          {s.label}
+                        </div>
+                      ))}
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
+            ))}
+          </motion.div>
+        )}
+      </AnimatePresence>
     </nav>
   );
 }
