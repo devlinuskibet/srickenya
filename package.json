@@ -1,7 +1,8 @@
 {
   "name": "sric-kenya",
-  "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
+  "description": "Security Research and Information Centre - Kenya Web Application",
+  "author": "SRIC",
   "type": "module",
   "scripts": {
     "dev": "vite",
