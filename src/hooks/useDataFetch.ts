@@ -7,7 +7,7 @@ export function useDataFetch<T>(data: T, delay: number = 800) {
 
   useEffect(() => {
     const controller = new AbortController();
-    
+
     setLoading(true);
     setError(null);
 

@@ -62,170 +62,184 @@ export default function App() {
           minWidth: 0,
         }}
       >
-        <ErrorBoundary>\n          <Suspense fallback={<div style={{ display: "flex", justifyContent: "center", alignItems: "center", minHeight: "50vh" }}>Loading...</div>}>\n            <AnimatePresence mode="wait">
-          <Routes location={location} key={location.pathname}>
-            <Route
-              path="/"
-              element={
-                <PageTransition>
-                  <HomePage />
-                </PageTransition>
-              }
-            />
-            <Route
-              path="/our-story"
-              element={
-                <PageTransition>
-                  <OurStoryPage />
-                </PageTransition>
-              }
-            />
-            <Route
-              path="/mission"
-              element={
-                <PageTransition>
-                  <MissionPage />
-                </PageTransition>
-              }
-            />
-            <Route
-              path="/values"
-              element={
-                <PageTransition>
-                  <ValuesPage />
-                </PageTransition>
-              }
-            />
-            <Route
-              path="/governance"
-              element={
-                <PageTransition>
-                  <GovernancePage />
-                </PageTransition>
-              }
-            />
-            <Route
-              path="/theory"
-              element={
-                <PageTransition>
-                  <TheoryPage />
-                </PageTransition>
-              }
-            />
-            <Route
-              path="/research"
-              element={
-                <PageTransition>
-                  <ProgramPage {...researchProgram} />
-                </PageTransition>
-              }
-            />
-            <Route
-              path="/arms"
-              element={
-                <PageTransition>
-                  <ProgramPage {...armsProgram} />
-                </PageTransition>
-              }
-            />
-            <Route
-              path="/peacebuilding"
-              element={
-                <PageTransition>
-                  <ProgramPage {...peacebuildingProgram} />
-                </PageTransition>
-              }
-            />
-            <Route
-              path="/ssr"
-              element={
-                <PageTransition>
-                  <ProgramPage {...ssrProgram} />
-                </PageTransition>
-              }
-            />
-            <Route
-              path="/crime"
-              element={
-                <PageTransition>
-                  <ProgramPage {...crimeProgram} />
-                </PageTransition>
-              }
-            />
-            <Route
-              path="/impact"
-              element={
-                <PageTransition>
-                  <ImpactPage />
-                </PageTransition>
-              }
-            />
-            <Route
-              path="/publications"
-              element={
-                <PageTransition>
-                  <PublicationsPage />
-                </PageTransition>
-              }
-            />
-            <Route
-              path="/media"
-              element={
-                <PageTransition>
-                  <MediaPage />
-                </PageTransition>
-              }
-            />
-            <Route
-              path="/partnerships"
-              element={
-                <PageTransition>
-                  <PartnershipsPage />
-                </PageTransition>
-              }
-            />
-            <Route
-              path="/careers"
-              element={
-                <PageTransition>
-                  <CareersPage />
-                </PageTransition>
-              }
-            />
-            <Route
-              path="/internships"
-              element={
-                <PageTransition>
-                  <InternshipsPage />
-                </PageTransition>
-              }
-            />
-            <Route
-              path="/partner-us"
-              element={
-                <PageTransition>
-                  <PartnerUsPage />
-                </PageTransition>
-              }
-            />
-            <Route
-              path="/contact"
-              element={
-                <PageTransition>
-                  <ContactPage />
-                </PageTransition>
-              }
-            />
-            <Route
-              path="*"
-              element={
-                <PageTransition>
-                  <NotFoundPage />
-                </PageTransition>
-              }
-            />
-          </Routes>
-        </AnimatePresence>\n          </Suspense>\n        </ErrorBoundary>
+        <ErrorBoundary>
+          \n{" "}
+          <Suspense
+            fallback={
+              <div style={{ display: "flex", justifyContent: "center", alignItems: "center", minHeight: "50vh" }}>
+                Loading...
+              </div>
+            }
+          >
+            \n{" "}
+            <AnimatePresence mode="wait">
+              <Routes location={location} key={location.pathname}>
+                <Route
+                  path="/"
+                  element={
+                    <PageTransition>
+                      <HomePage />
+                    </PageTransition>
+                  }
+                />
+                <Route
+                  path="/our-story"
+                  element={
+                    <PageTransition>
+                      <OurStoryPage />
+                    </PageTransition>
+                  }
+                />
+                <Route
+                  path="/mission"
+                  element={
+                    <PageTransition>
+                      <MissionPage />
+                    </PageTransition>
+                  }
+                />
+                <Route
+                  path="/values"
+                  element={
+                    <PageTransition>
+                      <ValuesPage />
+                    </PageTransition>
+                  }
+                />
+                <Route
+                  path="/governance"
+                  element={
+                    <PageTransition>
+                      <GovernancePage />
+                    </PageTransition>
+                  }
+                />
+                <Route
+                  path="/theory"
+                  element={
+                    <PageTransition>
+                      <TheoryPage />
+                    </PageTransition>
+                  }
+                />
+                <Route
+                  path="/research"
+                  element={
+                    <PageTransition>
+                      <ProgramPage {...researchProgram} />
+                    </PageTransition>
+                  }
+                />
+                <Route
+                  path="/arms"
+                  element={
+                    <PageTransition>
+                      <ProgramPage {...armsProgram} />
+                    </PageTransition>
+                  }
+                />
+                <Route
+                  path="/peacebuilding"
+                  element={
+                    <PageTransition>
+                      <ProgramPage {...peacebuildingProgram} />
+                    </PageTransition>
+                  }
+                />
+                <Route
+                  path="/ssr"
+                  element={
+                    <PageTransition>
+                      <ProgramPage {...ssrProgram} />
+                    </PageTransition>
+                  }
+                />
+                <Route
+                  path="/crime"
+                  element={
+                    <PageTransition>
+                      <ProgramPage {...crimeProgram} />
+                    </PageTransition>
+                  }
+                />
+                <Route
+                  path="/impact"
+                  element={
+                    <PageTransition>
+                      <ImpactPage />
+                    </PageTransition>
+                  }
+                />
+                <Route
+                  path="/publications"
+                  element={
+                    <PageTransition>
+                      <PublicationsPage />
+                    </PageTransition>
+                  }
+                />
+                <Route
+                  path="/media"
+                  element={
+                    <PageTransition>
+                      <MediaPage />
+                    </PageTransition>
+                  }
+                />
+                <Route
+                  path="/partnerships"
+                  element={
+                    <PageTransition>
+                      <PartnershipsPage />
+                    </PageTransition>
+                  }
+                />
+                <Route
+                  path="/careers"
+                  element={
+                    <PageTransition>
+                      <CareersPage />
+                    </PageTransition>
+                  }
+                />
+                <Route
+                  path="/internships"
+                  element={
+                    <PageTransition>
+                      <InternshipsPage />
+                    </PageTransition>
+                  }
+                />
+                <Route
+                  path="/partner-us"
+                  element={
+                    <PageTransition>
+                      <PartnerUsPage />
+                    </PageTransition>
+                  }
+                />
+                <Route
+                  path="/contact"
+                  element={
+                    <PageTransition>
+                      <ContactPage />
+                    </PageTransition>
+                  }
+                />
+                <Route
+                  path="*"
+                  element={
+                    <PageTransition>
+                      <NotFoundPage />
+                    </PageTransition>
+                  }
+                />
+              </Routes>
+            </AnimatePresence>
+            \n{" "}
+          </Suspense>
+          \n{" "}
+        </ErrorBoundary>
       </main>
       <Footer />
       <ScrollToTop />
