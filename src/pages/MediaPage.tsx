@@ -176,7 +176,7 @@ export default function MediaPage() {
                     <button
                       onClick={(e) => {
                         e.stopPropagation();
-                        setSelectedPhoto(photos[selectedPhoto.index - 1]);
+                        setSelectedPhoto(photoItems[selectedPhoto.index - 1]);
                       }}
                       style={{
                         position: "absolute",
@@ -198,11 +198,11 @@ export default function MediaPage() {
                       ‹
                     </button>
                   )}
-                  {selectedPhoto.index < photos.length - 1 && (
+                  {selectedPhoto.index < photoItems.length - 1 && (
                     <button
                       onClick={(e) => {
                         e.stopPropagation();
-                        setSelectedPhoto(photos[selectedPhoto.index + 1]);
+                        setSelectedPhoto(photoItems[selectedPhoto.index + 1]);
                       }}
                       style={{
                         position: "absolute",

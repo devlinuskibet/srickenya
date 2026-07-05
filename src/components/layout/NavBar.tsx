@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import { navItems } from "../data";
+import { navItems } from "@/data";
+import type { NavItem } from "@/types";
 import sricLogo from "../assets/logos/sric.png";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -78,7 +79,7 @@ export default function NavBar() {
         </div>
 
         <div className="desktop-nav" style={{ display: "flex", alignItems: "center", gap: 4 }}>
-          {navItems.map((item) => (
+          {navItems.map((item: NavItem) => (
             <div key={item.label} className="nav-item" style={{ position: "relative" }}>
               <button
                 onClick={() => item.page && navigate(item.page)}
@@ -102,7 +103,7 @@ export default function NavBar() {
               </button>
               {item.sub && (
                 <div className="nav-dropdown">
-                  {item.sub.map((s) => (
+                  {item.sub.map((s: NavItem) => (
                     <div
                       key={s.label}
                       className="nav-dropdown-item"
@@ -155,7 +156,7 @@ export default function NavBar() {
               overflowX: "hidden",
             }}
           >
-            {navItems.map((item) => (
+            {navItems.map((item: NavItem) => (
               <div key={item.label}>
                 <div
                   role="button"
@@ -198,7 +199,7 @@ export default function NavBar() {
                       exit={{ opacity: 0, height: 0 }}
                       style={{ overflow: "hidden" }}
                     >
-                      {item.sub.map((s) => (
+                      {item.sub.map((s: NavItem) => (
                         <div
                           key={s.label}
                           role="button"

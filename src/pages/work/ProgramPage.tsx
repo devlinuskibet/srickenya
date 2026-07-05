@@ -2,7 +2,7 @@ import SEO from "../../components/common/SEO";
 import Button from "../../components/ui/Button";
 import PageHero from "../../components/layout/PageHero";
 
-import { ProgramPageProps } from "../../types";
+import type { ProgramPageProps } from "../../types";
 
 export default function ProgramPage({ title, icon, subtitle, framing, areas, flagship }: ProgramPageProps) {
   return (

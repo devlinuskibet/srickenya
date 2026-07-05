@@ -1,8 +1,8 @@
-import Button from "../components/ui/Button";
+import Button from "@/components/ui/Button";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import sricLogo from "../assets/logos/sric.png";
-import { useToast } from "../components/ui/Toast";
+import { useToast } from "@/components/ui/Toast";
 
 export default function Footer() {
   const navigate = useNavigate();
