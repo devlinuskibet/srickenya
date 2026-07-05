@@ -1,18 +1,19 @@
 import { AnimatePresence } from "framer-motion";
 import PageTransition from "./components/common/PageTransition";
 import ScrollToTop from "./components/common/ScrollToTop";
-import { useEffect } from "react";
+import { useEffect, Suspense, lazy } from "react";
+import ErrorBoundary from "./components/common/ErrorBoundary";
 import { Routes, Route, useLocation } from "react-router-dom";
 import { injectStyles } from "./styles/globalStyles";
 import NavBar from "./components/layout/NavBar";
 import Footer from "./components/layout/Footer";
-import HomePage from "./pages/HomePage";
-import OurStoryPage from "./pages/about/OurStoryPage";
-import MissionPage from "./pages/about/MissionPage";
-import ValuesPage from "./pages/about/ValuesPage";
-import GovernancePage from "./pages/about/GovernancePage";
-import TheoryPage from "./pages/about/TheoryPage";
-import ProgramPage from "./pages/work/ProgramPage";
+const HomePage = lazy(() => import("./pages/HomePage"));
+const OurStoryPage = lazy(() => import("./pages/about/OurStoryPage"));
+const MissionPage = lazy(() => import("./pages/about/MissionPage"));
+const ValuesPage = lazy(() => import("./pages/about/ValuesPage"));
+const GovernancePage = lazy(() => import("./pages/about/GovernancePage"));
+const TheoryPage = lazy(() => import("./pages/about/TheoryPage"));
+const ProgramPage = lazy(() => import("./pages/work/ProgramPage"));
 import {
   researchProgram,
   armsProgram,
@@ -20,15 +21,15 @@ import {
   ssrProgram,
   crimeProgram,
 } from "./pages/work/programConfig";
-import ImpactPage from "./pages/ImpactPage";
-import PublicationsPage from "./pages/PublicationsPage";
-import MediaPage from "./pages/MediaPage";
-import PartnershipsPage from "./pages/PartnershipsPage";
-import CareersPage from "./pages/CareersPage";
-import InternshipsPage from "./pages/InternshipsPage";
-import PartnerUsPage from "./pages/PartnerUsPage";
-import ContactPage from "./pages/ContactPage";
-import NotFoundPage from "./pages/NotFoundPage";
+const ImpactPage = lazy(() => import("./pages/ImpactPage"));
+const PublicationsPage = lazy(() => import("./pages/PublicationsPage"));
+const MediaPage = lazy(() => import("./pages/MediaPage"));
+const PartnershipsPage = lazy(() => import("./pages/PartnershipsPage"));
+const CareersPage = lazy(() => import("./pages/CareersPage"));
+const InternshipsPage = lazy(() => import("./pages/InternshipsPage"));
+const PartnerUsPage = lazy(() => import("./pages/PartnerUsPage"));
+const ContactPage = lazy(() => import("./pages/ContactPage"));
+const NotFoundPage = lazy(() => import("./pages/NotFoundPage"));
 
 export default function App() {
   const location = useLocation();
@@ -61,7 +62,7 @@ export default function App() {
           minWidth: 0,
         }}
       >
-        <AnimatePresence mode="wait">
+        <ErrorBoundary>\n          <Suspense fallback={<div style={{ display: "flex", justifyContent: "center", alignItems: "center", minHeight: "50vh" }}>Loading...</div>}>\n            <AnimatePresence mode="wait">
           <Routes location={location} key={location.pathname}>
             <Route
               path="/"
@@ -224,7 +225,7 @@ export default function App() {
               }
             />
           </Routes>
-        </AnimatePresence>
+        </AnimatePresence>\n          </Suspense>\n        </ErrorBoundary>
       </main>
       <Footer />
       <ScrollToTop />
