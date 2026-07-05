@@ -6,18 +6,26 @@ export function useDataFetch<T>(data: T, delay: number = 800) {
   const [error, setError] = useState<Error | null>(null);
 
   useEffect(() => {
-    let isMounted = true;
+    const controller = new AbortController();
+    
     setLoading(true);
+    setError(null);
 
     const timer = setTimeout(() => {
-      if (isMounted) {
-        setResult(data);
-        setLoading(false);
+      if (!controller.signal.aborted) {
+        try {
+          if (!data) throw new Error("No data provided");
+          setResult(data);
+        } catch (err) {
+          setError(err instanceof Error ? err : new Error("Unknown error"));
+        } finally {
+          setLoading(false);
+        }
       }
     }, delay);
 
     return () => {
-      isMounted = false;
+      controller.abort();
       clearTimeout(timer);
     };
   }, [data, delay]);
