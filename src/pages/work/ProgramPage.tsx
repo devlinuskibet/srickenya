@@ -2,14 +2,7 @@ import SEO from "../../components/common/SEO";
 import Button from "../../components/ui/Button";
 import PageHero from "../../components/layout/PageHero";
 
-export type ProgramPageProps = {
-  title: string;
-  icon: string;
-  subtitle: string;
-  framing: string;
-  areas: string[];
-  flagship: { title: string; desc: string };
-};
+import { ProgramPageProps } from "../../types";
 
 export default function ProgramPage({ title, icon, subtitle, framing, areas, flagship }: ProgramPageProps) {
   return (

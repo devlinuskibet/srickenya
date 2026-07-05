@@ -1,4 +1,4 @@
-import type { ProgramPageProps } from "./ProgramPage";
+import type { ProgramPageProps } from "../../types";
 
 export const researchProgram: ProgramPageProps = {
   title: "Research & Information",
