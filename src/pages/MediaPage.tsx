@@ -1,6 +1,6 @@
-import SEO from "../components/SEO";
+import SEO from "../components/common/SEO";
 import { useState } from "react";
-import PageHero from "../components/PageHero";
+import PageHero from "../components/layout/PageHero";
 import { galleryItems } from "../data";
 import { motion, AnimatePresence } from "framer-motion";
 

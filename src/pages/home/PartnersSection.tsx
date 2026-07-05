@@ -1,4 +1,4 @@
-import SectionHeader from "../../components/SectionHeader";
+import SectionHeader from "../../components/ui/SectionHeader";
 import { partners } from "../../data";
 
 export default function PartnersSection() {

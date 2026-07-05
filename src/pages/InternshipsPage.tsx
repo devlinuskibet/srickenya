@@ -1,6 +1,6 @@
-import SEO from "../components/SEO";
-import Button from "../components/Button";
-import PageHero from "../components/PageHero";
+import SEO from "../components/common/SEO";
+import Button from "../components/ui/Button";
+import PageHero from "../components/layout/PageHero";
 
 export default function InternshipsPage() {
   return (

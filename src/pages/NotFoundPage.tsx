@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
-import Button from "../components/Button";
-import SEO from "../components/SEO";
+import Button from "../components/ui/Button";
+import SEO from "../components/common/SEO";
 import { motion } from "framer-motion";
 
 export default function NotFoundPage() {

@@ -1,11 +1,11 @@
 import { AnimatePresence } from "framer-motion";
-import PageTransition from "./components/PageTransition";
-import ScrollToTop from "./components/ScrollToTop";
+import PageTransition from "./components/common/PageTransition";
+import ScrollToTop from "./components/common/ScrollToTop";
 import { useEffect } from "react";
 import { Routes, Route, useLocation } from "react-router-dom";
 import { injectStyles } from "./styles/globalStyles";
-import NavBar from "./components/NavBar";
-import Footer from "./components/Footer";
+import NavBar from "./components/layout/NavBar";
+import Footer from "./components/layout/Footer";
 import HomePage from "./pages/HomePage";
 import OurStoryPage from "./pages/about/OurStoryPage";
 import MissionPage from "./pages/about/MissionPage";

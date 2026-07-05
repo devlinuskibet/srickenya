@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import SectionHeader from "../../components/SectionHeader";
+import SectionHeader from "../../components/ui/SectionHeader";
 import { programs } from "../../data";
 
 export default function ProgramsSection() {

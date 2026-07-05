@@ -1,7 +1,7 @@
-import SEO from "../components/SEO";
-import Button from "../components/Button";
+import SEO from "../components/common/SEO";
+import Button from "../components/ui/Button";
 import { useState } from "react";
-import PageHero from "../components/PageHero";
+import PageHero from "../components/layout/PageHero";
 import { publications } from "../data";
 import { useDataFetch } from "../hooks/useDataFetch";
 

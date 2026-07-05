@@ -5,7 +5,7 @@ import { HelmetProvider } from "react-helmet-async";
 import "./index.css";
 import App from "./App.tsx";
 
-import { ToastProvider } from "./components/Toast";
+import { ToastProvider } from "./components/ui/Toast";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>

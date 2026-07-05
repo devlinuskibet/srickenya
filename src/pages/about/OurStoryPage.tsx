@@ -1,5 +1,5 @@
-import SEO from "../../components/SEO";
-import PageHero from "../../components/PageHero";
+import SEO from "../../components/common/SEO";
+import PageHero from "../../components/layout/PageHero";
 
 export default function OurStoryPage() {
   return (

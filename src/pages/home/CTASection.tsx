@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
-import Button from "../../components/Button";
-import SectionHeader from "../../components/SectionHeader";
+import Button from "../../components/ui/Button";
+import SectionHeader from "../../components/ui/SectionHeader";
 
 export default function CTASection() {
   const navigate = useNavigate();

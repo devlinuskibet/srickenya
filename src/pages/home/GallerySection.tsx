@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
-import Button from "../../components/Button";
-import SectionHeader from "../../components/SectionHeader";
+import Button from "../../components/ui/Button";
+import SectionHeader from "../../components/ui/SectionHeader";
 import { galleryItems } from "../../data";
 
 export default function GallerySection() {

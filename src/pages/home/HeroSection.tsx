@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import Button from "../../components/Button";
+import Button from "../../components/ui/Button";
 import sricLogo from "../../assets/logos/sric.png";
 import { heroSlides } from "../../data";
 
