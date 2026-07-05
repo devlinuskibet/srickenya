@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { navItems } from "@/data";
 import type { NavItem } from "@/types";
-import sricLogo from "../assets/logos/sric.png";
+import sricLogo from "@/assets/logos/sric.png";
 import { motion, AnimatePresence } from "framer-motion";
 
 export default function NavBar() {
