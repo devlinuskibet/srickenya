@@ -110,9 +110,9 @@ export default function NavBar() {
                       role="button"
                       tabIndex={0}
                       aria-label={s.label}
-                      onClick={() => navigate(s.page)}
+                      onClick={() => { if (s.page) navigate(s.page); }}
                       onKeyDown={(e) => {
-                        if (e.key === "Enter") navigate(s.page);
+                        if (e.key === "Enter" && s.page) navigate(s.page);
                       }}
                       style={{ cursor: "pointer" }}
                     >
@@ -206,12 +206,12 @@ export default function NavBar() {
                           tabIndex={0}
                           aria-label={s.label}
                           onClick={() => {
-                            navigate(s.page);
+                            if (s.page) navigate(s.page);
                             setMobileOpen(false);
                           }}
                           onKeyDown={(e) => {
                             if (e.key === "Enter") {
-                              navigate(s.page);
+                              if (s.page) navigate(s.page);
                               setMobileOpen(false);
                             }
                           }}
